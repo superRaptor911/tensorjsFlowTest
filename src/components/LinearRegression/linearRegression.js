@@ -1,5 +1,5 @@
 import * as tf from '@tensorflow/tfjs';
-import {map} from './Utility';
+import {map} from '../../Utility';
 
 let m, b;
 const learningRate = 0.2;

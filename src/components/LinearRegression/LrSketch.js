@@ -2,12 +2,12 @@
 import React from 'react';
 import Sketch from 'react-p5';
 import {getLine, getMemoryUsage, init, run} from './linearRegression';
-import {map} from './Utility';
+import {map} from '../../Utility';
 
 let xs = [];
 let ys = [];
 
-const OurSketch = () => {
+const LrSketch = () => {
   const setup = (p5, canvasParentRef) => {
     p5.createCanvas(500, 500).parent(canvasParentRef);
     init();
@@ -45,4 +45,4 @@ const OurSketch = () => {
   return <Sketch setup={setup} draw={draw} mousePressed={mousePressed} />;
 };
 
-export default OurSketch;
+export default LrSketch;

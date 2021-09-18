@@ -10,21 +10,22 @@ endif
 set shortmess=aoO
 badd +8 index.js
 badd +11 App.css
-badd +2 App.js
-badd +27 OurSketch.js
+badd +9 App.js
 badd +2 Utility.js
-badd +59 linearRegression.js
+badd +8 pages/LinearRegression.js
+badd +29 components/LinearRegression/LrSketch.js
+badd +2 components/LinearRegression/linearRegression.js
 argglobal
 %argdel
-edit linearRegression.js
+edit App.js
 argglobal
-balt OurSketch.js
-let s:l = 59 - ((44 * winheight(0) + 22) / 45)
+balt components/LinearRegression/LrSketch.js
+let s:l = 12 - ((11 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 59
-normal! 0
+keepjumps 12
+normal! 05|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0&& getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -37,7 +38,6 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
