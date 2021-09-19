@@ -14,7 +14,9 @@ const MainPage = () => {
           <Link to={ROUTES.LINEAR_REGRESSION.path}>* Linear Regression</Link>
         </Typography>
         <Typography variant="t3" style={{textAlign: 'left'}}>
-          * Linear Regression
+          <Link to={ROUTES.QUADRATIC_REGRESSION.path}>
+            * Quadratic Regression
+          </Link>
         </Typography>
       </div>
     </div>
