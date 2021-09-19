@@ -1,21 +1,27 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import LinearRegression from './pages/LinearRegression';
-import TfProfile from './pages/TfProfile';
+import {ROUTES} from './Routes';
+
+function genRoutes() {
+  let jsx = [];
+  for (const i in ROUTES) {
+    const item = ROUTES[i];
+    jsx.push({path: item.path, component: item.component});
+  }
+  return jsx;
+}
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/">
-            <LinearRegression />
-          </Route>
-
-          <Route exact path="/tfprofile">
-            <TfProfile />
-          </Route>
+          {genRoutes().map((item, id) => (
+            <Route exact path={item.path} key={id}>
+              {item.component}
+            </Route>
+          ))}
         </Switch>
       </Router>
     </div>
