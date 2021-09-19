@@ -331,9 +331,9 @@ module.exports = function (webpackEnv) {
         //
 
         //
-        '@tensorflow/tfjs$': path.resolve(__dirname, '../custom_tfjs/custom_tfjs.js'),
-        '@tensorflow/tfjs-core$': path.resolve(__dirname, '../custom_tfjs/custom_tfjs_core.js'),
-        '@tensorflow/tfjs-core/dist/ops/ops_for_converter': path.resolve(__dirname, '../custom_tfjs/custom_ops_for_converter.js'),
+        // '@tensorflow/tfjs$': path.resolve(__dirname, '../custom_tfjs/custom_tfjs.js'),
+        // '@tensorflow/tfjs-core$': path.resolve(__dirname, '../custom_tfjs/custom_tfjs_core.js'),
+        // '@tensorflow/tfjs-core/dist/ops/ops_for_converter': path.resolve(__dirname, '../custom_tfjs/custom_ops_for_converter.js'),
 
         'react-native': 'react-native-web',
         // Allows for better profiling with ReactDevTools
