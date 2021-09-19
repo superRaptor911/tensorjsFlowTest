@@ -329,6 +329,8 @@ module.exports = function (webpackEnv) {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         //
+
+        //
         '@tensorflow/tfjs$': path.resolve(__dirname, '../custom_tfjs/custom_tfjs.js'),
         '@tensorflow/tfjs-core$': path.resolve(__dirname, '../custom_tfjs/custom_tfjs_core.js'),
         '@tensorflow/tfjs-core/dist/ops/ops_for_converter': path.resolve(__dirname, '../custom_tfjs/custom_ops_for_converter.js'),
