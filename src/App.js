@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import LinearRegression from './pages/LinearRegression';
+import TfProfile from './pages/TfProfile';
 
 function App() {
   return (
@@ -10,6 +11,10 @@ function App() {
         <Switch>
           <Route exact path="/">
             <LinearRegression />
+          </Route>
+
+          <Route exact path="/tfprofile">
+            <TfProfile />
           </Route>
         </Switch>
       </Router>

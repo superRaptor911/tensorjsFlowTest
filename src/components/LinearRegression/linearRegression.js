@@ -57,3 +57,13 @@ export function getLine() {
 export function getMemoryUsage() {
   return tf.memory().numBytes;
 }
+
+export async function profile() {
+  const profileInfo = await tf.profile(() => {
+    init();
+    run([0], [0]);
+    getLine();
+  });
+
+  return profileInfo;
+}

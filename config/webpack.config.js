@@ -328,6 +328,11 @@ module.exports = function (webpackEnv) {
       alias: {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
+        //
+        '@tensorflow/tfjs$': path.resolve(__dirname, '../custom_tfjs/custom_tfjs.js'),
+        '@tensorflow/tfjs-core$': path.resolve(__dirname, '../custom_tfjs/custom_tfjs_core.js'),
+        '@tensorflow/tfjs-core/dist/ops/ops_for_converter': path.resolve(__dirname, '../custom_tfjs/custom_ops_for_converter.js'),
+
         'react-native': 'react-native-web',
         // Allows for better profiling with ReactDevTools
         ...(isEnvProductionProfile && {
@@ -345,10 +350,13 @@ module.exports = function (webpackEnv) {
         // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
         // please link the files into your node_modules/ and let module-resolution kick in.
         // Make sure your source files are compiled, as they will not be processed in any way.
-        new ModuleScopePlugin(paths.appSrc, [
-          paths.appPackageJson,
-          reactRefreshOverlayEntry,
-        ]),
+        //
+        //
+        //
+        // new ModuleScopePlugin(paths.appSrc, [
+        //   paths.appPackageJson,
+        //   reactRefreshOverlayEntry,
+        // ]),
       ],
     },
     resolveLoader: {
