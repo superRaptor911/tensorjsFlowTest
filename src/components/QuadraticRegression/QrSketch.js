@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, {useEffect} from 'react';
 import {ReactP5Wrapper} from 'react-p5-wrapper';
 import {getCurve, getMemoryUsage, init, run} from './quadraticRegression';
@@ -6,7 +7,7 @@ import {map} from '../../Utility';
 let xs = [];
 let ys = [];
 
-export const clearPoints = () => {
+const clearPoints = () => {
   xs = [];
   ys = [];
 };
@@ -25,7 +26,6 @@ const sketch = p5 => {
 
   p5.draw = () => {
     p5.background(0);
-    p5.textFont('Georgia');
     p5.stroke(255);
     p5.strokeWeight(6);
     for (let i = 0; i < xs.length; i++) {
@@ -52,10 +52,14 @@ const sketch = p5 => {
   };
 };
 
-const LrSketch = () => {
+const LrSketch = ({clearPressed}) => {
   useEffect(() => {
     init(500, 500);
   }, []);
+
+  useEffect(() => {
+    clearPoints();
+  }, [clearPressed]);
 
   return <ReactP5Wrapper sketch={sketch} />;
 };

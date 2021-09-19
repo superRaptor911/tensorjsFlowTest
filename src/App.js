@@ -19,7 +19,7 @@ function App() {
         <Switch>
           {genRoutes().map((item, id) => (
             <Route exact path={item.path} key={id}>
-              {item.component}
+              <item.component />
             </Route>
           ))}
         </Switch>
