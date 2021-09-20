@@ -18,6 +18,12 @@ const MainPage = () => {
             * Quadratic Regression
           </Link>
         </Typography>
+
+        <Typography variant="t3" style={{textAlign: 'left'}}>
+          <Link to={ROUTES.POLYNOMIAL_REGRESSION.path}>
+            * Polynomial Regression
+          </Link>
+        </Typography>
       </div>
     </div>
   );
