@@ -18,10 +18,18 @@ const sketch = p5 => {
   };
 
   p5.mousePressed = event => {
-    const x = map(event.offsetX, 500, 0, 1);
-    const y = map(event.offsetY, 500, 1, 0);
+    const x = map(event.offsetX, p5.width, 0, 1);
+    const y = map(event.offsetY, p5.height, 1, 0);
     xs.push(x);
     ys.push(y);
+  };
+
+  p5.updateWithProps = props => {
+    if (props.settings) {
+      const res = props.settings.resolution;
+      p5.resizeCanvas(res.x, res.y);
+      console.log('width height ', res);
+    }
   };
 
   p5.draw = () => {
@@ -29,8 +37,8 @@ const sketch = p5 => {
     p5.stroke(255);
     p5.strokeWeight(6);
     for (let i = 0; i < xs.length; i++) {
-      const x = map(xs[i], 1, 0, 500);
-      const y = map(ys[i], 1, 500, 0);
+      const x = map(xs[i], 1, 0, p5.width);
+      const y = map(ys[i], 1, p5.height, 0);
       p5.point(x, y);
     }
 
@@ -52,16 +60,17 @@ const sketch = p5 => {
   };
 };
 
-const LrSketch = ({clearPressed}) => {
+const LrSketch = ({clearPressed, settings}) => {
   useEffect(() => {
-    init(500, 500, 3);
-  }, []);
+    const res = settings.resolution;
+    init(res.x, res.y, settings.degree);
+  }, [settings]);
 
   useEffect(() => {
     clearPoints();
   }, [clearPressed]);
 
-  return <ReactP5Wrapper sketch={sketch} />;
+  return <ReactP5Wrapper sketch={sketch} settings={settings} />;
 };
 
 export default LrSketch;

@@ -10,30 +10,31 @@ endif
 set shortmess=aoO
 badd +8 index.js
 badd +22 App.js
-badd +2 Utility.js
+badd +1 Utility.js
 badd +1 pages/LinearRegression.js
 badd +29 components/LinearRegression/LrSketch.js
 badd +43 components/LinearRegression/linearRegression.js
-badd +26 pages/MainPage.js
+badd +31 pages/MainPage.js
 badd +21 Routes.js
-badd +23 components/ui/Typography.js
 badd +1 pages/QuadraticRegression.js
 badd +68 components/QuadraticRegression/quadraticRegression.js
 badd +30 components/QuadraticRegression/QrSketch.js
-badd +17 pages/PolynomialRegression.js
-badd +1 components/PolynomialRegression/polynomialRegression.js
-badd +37 components/PolynomialRegression/PrSketch.js
+badd +19 pages/PolynomialRegression.js
+badd +34 components/PolynomialRegression/polynomialRegression.js
+badd +34 components/PolynomialRegression/PrSketch.js
+badd +73 components/PolynomialRegression/Settings.js
+badd +61 components/ui/Sidebar.js
 argglobal
 %argdel
-edit components/PolynomialRegression/PrSketch.js
+edit components/PolynomialRegression/Settings.js
 argglobal
-balt pages/MainPage.js
-let s:l = 57 - ((34 * winheight(0) + 22) / 45)
+balt components/ui/Sidebar.js
+let s:l = 73 - ((31 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 57
-normal! 020|
+keepjumps 73
+normal! 015|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0&& getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

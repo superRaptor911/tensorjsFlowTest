@@ -9,6 +9,12 @@ let SCREEN_XSIZE = 500;
 let SCREEN_YSIZE = 500;
 
 export function init(res_x, res_y, N) {
+  for (let i = 0; i < an.length; i++) {
+    an[i].dispose();
+  }
+
+  an = [];
+
   for (let i = 0; i < N + 1; i++) {
     an.push(tf.variable(tf.scalar(Math.random())));
   }
