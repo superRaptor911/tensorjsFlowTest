@@ -9,20 +9,25 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +2 App.js
-badd +2 Routes.js
-badd +5 pages/LinearRegression.js
-badd +28 components/LinearRegression/LrSketch.js
+badd +7 Routes.js
+badd +11 pages/LinearRegression.js
+badd +46 components/LinearRegression/LrSketch.js
+badd +14 pages/MainPage.js
+badd +2 common/p5Util.js
+badd +65 components/PolynomialRegression/PrSketch.js
+badd +55 components/QuadraticRegression/QrSketch.js
+badd +6 Utility.js
 argglobal
 %argdel
-edit components/LinearRegression/LrSketch.js
+edit components/PolynomialRegression/PrSketch.js
 argglobal
-balt pages/LinearRegression.js
-let s:l = 1 - ((0 * winheight(0) + 22) / 45)
+balt components/QuadraticRegression/QrSketch.js
+let s:l = 65 - ((23 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 65
+normal! 011|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0&& getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

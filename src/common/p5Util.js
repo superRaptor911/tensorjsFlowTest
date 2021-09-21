@@ -1,3 +1,5 @@
+import {delay} from '../Utility';
+
 export function getMouseLocation(p5, event) {
   if (event.type === 'mousedown') {
     if (
@@ -10,4 +12,13 @@ export function getMouseLocation(p5, event) {
     }
   }
   return null;
+}
+
+export async function getFPS(p5) {
+  const fcBefore = p5.frameCount;
+  await delay(1000);
+
+  const fcNow = p5.frameCount;
+
+  return fcNow - fcBefore;
 }

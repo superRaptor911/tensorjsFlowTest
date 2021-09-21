@@ -3,10 +3,11 @@ import React, {useEffect} from 'react';
 import {ReactP5Wrapper} from 'react-p5-wrapper';
 import {getCurve, getMemoryUsage, init, run} from './quadraticRegression';
 import {map} from '../../Utility';
-import {getMouseLocation} from '../../common/p5Util';
+import {getFPS, getMouseLocation} from '../../common/p5Util';
 
 let xs = [];
 let ys = [];
+let fps = 0;
 
 const clearPoints = () => {
   xs = [];
@@ -51,6 +52,11 @@ const sketch = p5 => {
     p5.strokeWeight(1);
     p5.fill(255);
     p5.text(`Memory Usage : ${getMemoryUsage()} Bytes`, 10, 30);
+    p5.text(`Fps : ${fps}`, 10, 50);
+
+    getFPS(p5).then(f => {
+      fps = f;
+    });
 
     run(xs, ys);
   };
