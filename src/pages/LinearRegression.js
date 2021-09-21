@@ -6,8 +6,6 @@ const Sketch = React.lazy(() =>
 );
 
 const LinearRegression = () => {
-  console.log(Sketch);
-
   return (
     <div>
       <Suspense fallback={<div>Loading...</div>}>
