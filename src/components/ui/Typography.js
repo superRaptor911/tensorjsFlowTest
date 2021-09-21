@@ -15,7 +15,7 @@ const Typography = ({
 };
 
 Typography.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.any,
   variant: PropTypes.oneOf(['t1', 't2', 't3', 't4', 't5', 't6']),
   className: PropTypes.string,
   style: PropTypes.object,
