@@ -3,38 +3,26 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/program/ai/test/ai-test/src
+cd ~/program/ai/test/ai-test-new/src
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +8 index.js
-badd +22 App.js
-badd +1 Utility.js
-badd +1 pages/LinearRegression.js
-badd +29 components/LinearRegression/LrSketch.js
-badd +43 components/LinearRegression/linearRegression.js
-badd +31 pages/MainPage.js
-badd +21 Routes.js
-badd +1 pages/QuadraticRegression.js
-badd +68 components/QuadraticRegression/quadraticRegression.js
-badd +30 components/QuadraticRegression/QrSketch.js
-badd +19 pages/PolynomialRegression.js
-badd +34 components/PolynomialRegression/polynomialRegression.js
-badd +34 components/PolynomialRegression/PrSketch.js
-badd +73 components/PolynomialRegression/Settings.js
-badd +61 components/ui/Sidebar.js
+badd +2 App.js
+badd +2 Routes.js
+badd +5 pages/LinearRegression.js
+badd +28 components/LinearRegression/LrSketch.js
 argglobal
 %argdel
-edit components/PolynomialRegression/Settings.js
+edit components/LinearRegression/LrSketch.js
 argglobal
-balt components/ui/Sidebar.js
-let s:l = 73 - ((31 * winheight(0) + 22) / 45)
+balt pages/LinearRegression.js
+let s:l = 1 - ((0 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 73
-normal! 015|
+keepjumps 1
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0&& getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -47,6 +35,7 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

@@ -1,7 +1,7 @@
 import LinearRegression from './pages/LinearRegression';
 import MainPage from './pages/MainPage';
-// import PolynomialRegression from './pages/PolynomialRegression';
-// import QuadraticRegression from './pages/QuadraticRegression';
+import PolynomialRegression from './pages/PolynomialRegression';
+import QuadraticRegression from './pages/QuadraticRegression';
 
 export const ROUTES = {
   ROOT: {
@@ -14,10 +14,10 @@ export const ROUTES = {
   },
   QUADRATIC_REGRESSION: {
     path: '/quadreg',
-    component: null,
+    component: QuadraticRegression,
   },
   POLYNOMIAL_REGRESSION: {
     path: '/polyreg',
-    component: null,
+    component: PolynomialRegression,
   },
 };
