@@ -3,6 +3,7 @@ import React, {useEffect} from 'react';
 import {ReactP5Wrapper} from 'react-p5-wrapper';
 import {getLine, getMemoryUsage, init, run} from './linearRegression';
 import {map} from '../../Utility';
+import {getMouseLocation} from '../../common/p5Util';
 
 let xs = [];
 let ys = [];
@@ -13,11 +14,13 @@ const sketch = p5 => {
   };
 
   p5.mousePressed = event => {
-    console.log([event.offsetX, event.offsetY]);
-    const x = map(event.offsetX, 500, 0, 1);
-    const y = map(event.offsetY, 500, 1, 0);
-    xs.push(x);
-    ys.push(y);
+    const pos = getMouseLocation(p5, event);
+    if (pos) {
+      const x = map(pos.x, 500, 0, 1);
+      const y = map(pos.y, 500, 1, 0);
+      xs.push(x);
+      ys.push(y);
+    }
   };
 
   p5.draw = () => {
