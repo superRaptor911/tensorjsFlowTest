@@ -14,20 +14,22 @@ badd +11 pages/LinearRegression.js
 badd +46 components/LinearRegression/LrSketch.js
 badd +14 pages/MainPage.js
 badd +2 common/p5Util.js
-badd +65 components/PolynomialRegression/PrSketch.js
-badd +55 components/QuadraticRegression/QrSketch.js
+badd +4 components/PolynomialRegression/PrSketch.js
+badd +4 components/QuadraticRegression/QrSketch.js
 badd +6 Utility.js
+badd +56 components/QuadraticRegression/quadraticRegression.js
+badd +67 components/PolynomialRegression/polynomialRegression.js
 argglobal
 %argdel
-edit components/PolynomialRegression/PrSketch.js
+edit components/QuadraticRegression/quadraticRegression.js
 argglobal
-balt components/QuadraticRegression/QrSketch.js
-let s:l = 65 - ((23 * winheight(0) + 22) / 45)
+balt components/PolynomialRegression/polynomialRegression.js
+let s:l = 55 - ((21 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 65
-normal! 011|
+keepjumps 55
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0&& getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

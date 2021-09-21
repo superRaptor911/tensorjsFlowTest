@@ -2,6 +2,7 @@ import * as tf from '@tensorflow/tfjs';
 import {map} from '../../Utility';
 
 let an = [];
+let curve = [];
 const learningRate = 0.08;
 const optimiser = tf.train.adam(learningRate);
 
@@ -55,7 +56,6 @@ export function run(xs, ys) {
 }
 
 export function getCurve() {
-  let curve = [];
   let xs = [];
 
   for (let i = 0; i < 1; i += 1.0 / SCREEN_XSIZE) {
@@ -64,15 +64,16 @@ export function getCurve() {
 
   tf.tidy(() => {
     const tfxs = tf.tensor1d(xs);
-
     const tfys = predict(tfxs);
-    const ys = tfys.dataSync();
 
-    for (let i = 0; i < xs.length; i++) {
-      const xScreen = map(xs[i], 1, 0, SCREEN_XSIZE);
-      const yScreen = map(ys[i], 1, SCREEN_YSIZE, 0);
-      curve.push([xScreen, yScreen]);
-    }
+    tfys.data().then(ys => {
+      curve = [];
+      for (let i = 0; i < xs.length; i++) {
+        const xScreen = map(xs[i], 1, 0, SCREEN_XSIZE);
+        const yScreen = map(ys[i], 1, SCREEN_YSIZE, 0);
+        curve.push([xScreen, yScreen]);
+      }
+    });
   });
 
   return curve;
